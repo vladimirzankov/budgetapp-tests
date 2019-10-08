@@ -1,0 +1,139 @@
+-------------------------------------------------------------------------------
+Test set: SignUpTest
+-------------------------------------------------------------------------------
+Tests run: 34, Failures: 19, Errors: 0, Skipped: 0, Time elapsed: 2.463 s <<< FAILURE! - in SignUpTest
+positive{String, String}[1]  Time elapsed: 0.038 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[2]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[3]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[4]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[5]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[6]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[7]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[8]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[9]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[10]  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[11]  Time elapsed: 0.01 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[12]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[13]  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[14]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[15]  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[16]  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[17]  Time elapsed: 0.038 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+positive{String, String}[18]  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at SignUpTest.positive(SignUpTest.java:30)
+
+blankPassword  Time elapsed: 0.02 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+JSON path errors.username doesn't match.
+Expected: a collection with size <2>
+  Actual: null
+
+	at SignUpTest.blankPassword(SignUpTest.java:98)
+
