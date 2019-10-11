@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/java,intellij
+# Created by https://www.gitignore.io/ru.zankov.api/java,intellij
 # Edit at https://www.gitignore.io/?templates=java,intellij
 
 ### Intellij ###
@@ -114,4 +114,4 @@ fabric.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# End of https://www.gitignore.io/api/java,intellij
+# End of https://www.gitignore.io/ru.zankov.api/java,intellij
