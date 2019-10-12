@@ -110,7 +110,7 @@ public class AuthorizationTest extends BaseTest {
     @Test
     @DisplayName("Sign up with blank password")
     public void signUpWithBlankPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example2.com", password = "Qwerty1";
+        String username = convert(testInfo) + "@example.com", password = "";
         AuthReq req = new AuthReq(username, password);
 
         given().body(req)
@@ -124,7 +124,7 @@ public class AuthorizationTest extends BaseTest {
     @Test
     @DisplayName("Sign up with short password")
     public void signUpWithShortPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+        String username = convert(testInfo) + "@example.com", password = "Qwert";
         AuthReq req = new AuthReq(username, password);
 
         given().body(req)
@@ -138,7 +138,7 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with blank username and password")
-    public void loginWithBlankPasswordAndUsername(TestInfo testInfo) {
+    public void loginWithBlankUsernameAndPass(TestInfo testInfo) {
         String username = convert(testInfo) + "@example.com", password = "Qwerty1";
         AuthReq req = new AuthReq(username, password);
 
@@ -216,7 +216,7 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with correct password in different register")
-    public void loginWithCorrectPasswordInDifferentRegister(TestInfo testInfo) {
+    public void passwordInDifferentRegister(TestInfo testInfo) {
         String username = convert(testInfo) + "@example.com", password = "Qwerty1";
         AuthReq req = new AuthReq(username, password);
 

@@ -39,12 +39,12 @@ public class ChangePasswordTest extends BaseTest {
     @Test
     @DisplayName("Change password to the same password")
     public void correctNew(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example1.com",
+        String username = convert(testInfo) + "@example.com",
                 original = "Qwerty1",
                 password = "Qwerty2",
                 confirm = "Qwerty2";
-        user.signUp(username, password);
-        String token = user.logIn(username, password).getToken();
+        user.signUp(username, original);
+        String token = user.logIn(username, original).getToken();
         PasswordReq passwordReq = new PasswordReq(original, password, confirm);
 
         given().auth().oauth2(token).and().body(passwordReq)
