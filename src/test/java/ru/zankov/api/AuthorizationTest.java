@@ -126,6 +126,7 @@ public class AuthorizationTest extends BaseTest {
             .body("errors.username[0]", equalTo("Username already taken."));
     }
 
+    @Disabled
     @Test
     @DisplayName("Sign up with blank password")
     public void signUpWithBlankPassword() {
