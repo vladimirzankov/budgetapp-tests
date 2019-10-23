@@ -1,6 +1,8 @@
 package ru.zankov.ui;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import ru.zankov.pages.SignUpPage;
 import ru.zankov.service.UserService;
 
@@ -8,8 +10,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 import static ru.zankov.utils.RandomUtils.randomEmail;
 
+@TestInstance(PER_CLASS)
+@DisplayName("UI: Sign up")
 public class SignUpTest extends BaseTest {
 
     @Test

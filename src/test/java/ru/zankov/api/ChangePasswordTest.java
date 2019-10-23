@@ -12,7 +12,7 @@ import static ru.zankov.EndpointUrl.*;
 import static ru.zankov.utils.RandomUtils.randomEmail;
 
 @TestInstance(PER_CLASS)
-@DisplayName("Change password")
+@DisplayName("API: Change password")
 public class ChangePasswordTest extends BaseTest {
 
     UserService user = new UserService();

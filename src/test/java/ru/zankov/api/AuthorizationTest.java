@@ -16,7 +16,7 @@ import static ru.zankov.EndpointUrl.*;
 import static ru.zankov.utils.RandomUtils.randomEmail;
 
 @TestInstance(PER_CLASS)
-@DisplayName("Authorization")
+@DisplayName("API: Authorization")
 public class AuthorizationTest extends BaseTest {
 
     @ParameterizedTest(name = "{displayName} {arguments}")
