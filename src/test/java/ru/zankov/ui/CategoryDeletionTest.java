@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Test;
 import ru.zankov.pages.ManageCategories;
 import ru.zankov.service.CategoryService;
 
-import java.util.UUID;
-
 import static com.codeborne.selenide.Selenide.open;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assumptions.assumeFalse;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 public class CategoryDeletionTest extends LoginFixture {
@@ -18,7 +16,7 @@ public class CategoryDeletionTest extends LoginFixture {
     @Test
     public void delete() {
         String token = currentUser.getToken();
-        String categoryName = UUID.randomUUID().toString();
+        String categoryName = randomAlphabetic(10);
         int id = category.create(categoryName, "INCOME", token).getId();
         open("/categories");
         ManageCategories manageCategories = new ManageCategories();

@@ -6,7 +6,7 @@ import ru.zankov.model.CategoryReq;
 import java.util.stream.Stream;
 
 import static io.restassured.RestAssured.given;
-import static ru.zankov.EndPoints.CATEGORIES;
+import static ru.zankov.EndpointUrl.CATEGORIES;
 
 public class CategoryService {
 

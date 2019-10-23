@@ -1,0 +1,14 @@
+ru\zankov\ui\LoginTest.class
+ru\zankov\ui\CategoryCreationTest.class
+ru\zankov\api\AuthorizationTest.class
+ru\zankov\api\ChangeNameTest.class
+ru\zankov\ui\BaseTest.class
+ru\zankov\api\CategoryDeletionTest.class
+ru\zankov\ui\LoginFixture.class
+ru\zankov\api\BaseTest.class
+ru\zankov\api\ChangeCurrencyTest.class
+ru\zankov\api\ChangePasswordTest.class
+ru\zankov\ui\SignUpTest.class
+ru\zankov\api\CategoryCreationTest.class
+ru\zankov\api\data\AuthorizationData.class
+ru\zankov\ui\CategoryDeletionTest.class

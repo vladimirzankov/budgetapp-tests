@@ -11,8 +11,8 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static io.restassured.filter.log.LogDetail.ALL;
 import static io.restassured.http.ContentType.JSON;
-import static ru.zankov.EndPoints.AUTH;
-import static ru.zankov.EndPoints.USERS;
+import static ru.zankov.EndpointUrl.AUTH;
+import static ru.zankov.EndpointUrl.USERS;
 
 public class UserService {
 

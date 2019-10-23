@@ -1,6 +1,6 @@
 package ru.zankov;
 
-public class EndPoints {
+public class EndpointUrl {
 
     public static final String USERS = "/api/users";
     public static final String AUTH = "/api/users/auth";

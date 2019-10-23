@@ -1,0 +1,139 @@
+-------------------------------------------------------------------------------
+Test set: ru.zankov.api.AuthorizationTest
+-------------------------------------------------------------------------------
+Tests run: 42, Failures: 19, Errors: 0, Skipped: 0, Time elapsed: 71.736 s <<< FAILURE! - in ru.zankov.api.AuthorizationTest
+positive{String, String}[1]  Time elapsed: 0.578 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[2]  Time elapsed: 0.304 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[3]  Time elapsed: 0.334 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[4]  Time elapsed: 0.326 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[5]  Time elapsed: 0.337 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[6]  Time elapsed: 0.272 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[7]  Time elapsed: 0.344 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[8]  Time elapsed: 0.314 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[9]  Time elapsed: 0.342 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[10]  Time elapsed: 0.276 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[11]  Time elapsed: 0.312 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[12]  Time elapsed: 0.314 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[13]  Time elapsed: 0.313 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[14]  Time elapsed: 0.437 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[15]  Time elapsed: 0.2 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[16]  Time elapsed: 0.342 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[17]  Time elapsed: 0.431 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+positive{String, String}[18]  Time elapsed: 0.234 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at ru.zankov.api.AuthorizationTest.positive(AuthorizationTest.java:30)
+
+signUpWithBlankPassword  Time elapsed: 0.491 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+JSON path errors.password[0] doesn't match.
+Expected: Password is required
+  Actual: Password length must be at least 6 characters
+
+	at ru.zankov.api.AuthorizationTest.signUpWithBlankPassword(AuthorizationTest.java:122)
+

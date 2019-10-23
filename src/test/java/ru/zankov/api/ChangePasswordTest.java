@@ -6,9 +6,10 @@ import org.junit.jupiter.api.*;
 import ru.zankov.service.UserService;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
-import static ru.zankov.EndPoints.*;
-import static ru.zankov.utils.RandomUtils.convert;
+import static ru.zankov.EndpointUrl.*;
+import static ru.zankov.utils.RandomUtils.randomEmail;
 
 @TestInstance(PER_CLASS)
 @DisplayName("Change password")
@@ -18,11 +19,11 @@ public class ChangePasswordTest extends BaseTest {
 
     @Test
     @DisplayName("Change password to a new correct password")
-    public void correct(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com",
-                original = "Qwerty1",
-                password = "Qwerty1",
-                confirm = "Qwerty1";
+    public void correct() {
+        String username = randomEmail(),
+                original = randomAlphanumeric(10),
+                password = original,
+                confirm = original;
         user.signUp(username, password);
         String token = user.logIn(username, password).getToken();
         PasswordReq passwordReq = new PasswordReq(original, password, confirm);
@@ -38,11 +39,11 @@ public class ChangePasswordTest extends BaseTest {
 
     @Test
     @DisplayName("Change password to the same password")
-    public void correctNew(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com",
-                original = "Qwerty1",
-                password = "Qwerty2",
-                confirm = "Qwerty2";
+    public void correctNew() {
+        String username = randomEmail(),
+                original = randomAlphanumeric(10),
+                password = randomAlphanumeric(10),
+                confirm = password;
         user.signUp(username, original);
         String token = user.logIn(username, original).getToken();
         PasswordReq passwordReq = new PasswordReq(original, password, confirm);

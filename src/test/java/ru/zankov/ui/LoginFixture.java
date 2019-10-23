@@ -5,7 +5,8 @@ import ru.zankov.model.User;
 import ru.zankov.pages.LoginPage;
 import ru.zankov.service.UserService;
 
-import java.util.UUID;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
+import static ru.zankov.utils.RandomUtils.*;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -16,7 +17,7 @@ public class LoginFixture extends BaseTest {
 
     @BeforeEach
     public void logIn() {
-        String username = UUID.randomUUID().toString() + "@example.com", password = "Qwerty1";
+        String username = randomEmail(), password = randomAlphanumeric(10);
         user.signUp(username, password);
         open("/");
         currentUser = user.logIn(username, password);

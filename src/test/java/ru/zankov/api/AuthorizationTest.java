@@ -7,20 +7,23 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
-import static ru.zankov.EndPoints.*;
-import static ru.zankov.utils.RandomUtils.convert;
+import static ru.zankov.EndpointUrl.*;
+import static ru.zankov.utils.RandomUtils.randomEmail;
 
 @TestInstance(PER_CLASS)
 @DisplayName("Authorization")
 public class AuthorizationTest extends BaseTest {
 
     @ParameterizedTest(name = "{displayName} {arguments}")
-    @MethodSource("ru.zankov.api.data.AuthorizationData#positive")
-    @DisplayName("Authorize with correct username and password")
-    public void positive(String username, String password) {
+    @MethodSource("ru.zankov.api.data.AuthorizationData#correctLogin")
+    @DisplayName("Authorize with correct username")
+    public void correctLogin(String username) {
+        String password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req)
@@ -32,10 +35,26 @@ public class AuthorizationTest extends BaseTest {
         .then().statusCode(200).and().body("username", equalTo(username));
     }
 
+    @ParameterizedTest(name = "{displayName} {arguments}")
+    @MethodSource("ru.zankov.api.data.AuthorizationData#correctPassword")
+    @DisplayName("Authorize with correct password")
+    public void correctPassword(String password) {
+        String username = randomEmail();
+        AuthReq req = new AuthReq(username, password);
+
+        given().body(req)
+                .when().post(USERS)
+                .then().statusCode(201).and().body("username", equalTo(username));
+
+        given().body(req)
+                .when().post(AUTH)
+                .then().statusCode(200).and().body("username", equalTo(username));
+    }
+
     @Test
     @DisplayName("Authorize with correct password in different register")
-    public void positiveDifferentRegister(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void positiveDifferentRegister() {
+        String username = randomEmail(), password = randomAlphabetic(10).toLowerCase();
         AuthReq req = new AuthReq(username, password);
 
         given().body(req)
@@ -73,8 +92,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Sign up with existing login")
-    public void existingLogin(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com5", password = "Qwerty1";
+    public void existingLogin() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -92,8 +111,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Sign up with existing login in different register")
-    public void existingLoginInDifferentRegister(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void existingLoginInDifferentRegister() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -109,8 +128,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Sign up with blank password")
-    public void signUpWithBlankPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "";
+    public void signUpWithBlankPassword() {
+        String username = randomEmail(), password = "";
         AuthReq req = new AuthReq(username, password);
 
         given().body(req)
@@ -123,8 +142,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Sign up with short password")
-    public void signUpWithShortPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwert";
+    public void signUpWithShortPassword() {
+        String username = randomEmail(), password = randomAlphanumeric(5);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req)
@@ -138,8 +157,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with blank username and password")
-    public void loginWithBlankUsernameAndPass(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void loginWithBlankUsernameAndPass() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -151,8 +170,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with blank username")
-    public void loginWithBlankUsername(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void loginWithBlankUsername() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -164,8 +183,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with blank password")
-    public void loginWithBlankPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void loginWithBlankPassword() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -177,8 +196,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with mixed username and password")
-    public void loginWithMixedLoginAndPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void loginWithMixedLoginAndPassword() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -190,8 +209,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with incorrect username")
-    public void loginWithIncorrectUsername(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void loginWithIncorrectUsername() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -203,8 +222,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with incorrect password")
-    public void loginWithIncorrectPassword(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void loginWithIncorrectPassword() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);
@@ -216,8 +235,8 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Login with correct password in different register")
-    public void passwordInDifferentRegister(TestInfo testInfo) {
-        String username = convert(testInfo) + "@example.com", password = "Qwerty1";
+    public void passwordInDifferentRegister() {
+        String username = randomEmail(), password = randomAlphanumeric(10);
         AuthReq req = new AuthReq(username, password);
 
         given().body(req).when().post(USERS).then().statusCode(201);

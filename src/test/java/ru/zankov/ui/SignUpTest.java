@@ -7,26 +7,28 @@ import ru.zankov.service.UserService;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
+import static ru.zankov.utils.RandomUtils.randomEmail;
 
 public class SignUpTest extends BaseTest {
 
     @Test
     public void successful() {
-        String username = System.currentTimeMillis() + "@test";
+        String username = randomEmail(), password = randomAlphanumeric(10);
         open("/signup");
         SignUpPage signUpPage = new SignUpPage();
-        signUpPage.signUpAs(username, "Qwerty1");
+        signUpPage.signUpAs(username, password);
         signUpPage.successMessage.shouldHave(text("Sign Up success. You can Login now."));
     }
 
     @Test
     public void tab() {
-        String username = System.currentTimeMillis() + "@test";
+        String username = randomEmail(), password = randomAlphanumeric(10);
         open("/signup");
         SignUpPage signUpPage = new SignUpPage();
         signUpPage.loginInput.val(username);
         signUpPage.loginInput.pressTab();
-        signUpPage.passwordInput.val("Qwerty1");
+        signUpPage.passwordInput.val(password);
         signUpPage.passwordInput.pressEnter();
         signUpPage.successMessage.shouldHave(text("Sign Up success. You can Login now."));
         UserService user = new UserService();
@@ -34,16 +36,17 @@ public class SignUpTest extends BaseTest {
 
     @Test
     public void incorrectLogin() {
+        String password = randomAlphanumeric(10);
         open("/signup");
         SignUpPage signUpPage = new SignUpPage();
-        signUpPage.signUpAs(" ", "Qwerty1");
+        signUpPage.signUpAs(" ", password);
         signUpPage.incorrectLoginMessage.shouldBe(visible);
         signUpPage.incorrectLoginMessage.shouldHave(text("Email is not valid"));
     }
 
     @Test
     public void blankPassword() {
-        String username = System.currentTimeMillis() + "@test";
+        String username = randomEmail();
         open("/signup");
         SignUpPage signUpPage = new SignUpPage();
         signUpPage.signUpAs(username, null);
@@ -53,10 +56,10 @@ public class SignUpTest extends BaseTest {
 
     @Test
     public void shortPassword() {
-        String username = System.currentTimeMillis() + "@test";
+        String username = randomEmail(), password = randomAlphanumeric(5);
         open("/signup");
         SignUpPage signUpPage = new SignUpPage();
-        signUpPage.signUpAs(username, "Qwert");
+        signUpPage.signUpAs(username, password);
         signUpPage.incorrectPasswordMessage.shouldBe(visible);
         signUpPage.incorrectPasswordMessage.shouldHave(text("Password length must be at least 6 characters"));
     }
